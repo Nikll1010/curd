@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 将namespace的值设置为DAO类对应的路径 -->
+<mapper namespace="com.nikll.demo.mapper.MyUserDao">
+
+    <!-- 查询数据条目 -->
+    <select id="getTotal" resultType="int">
+        SELECT COUNT(*) FROM user
+    </select>
+
+    <!-- 增加一条数据 -->
+    <insert id="addUser" >
+        INSERT INTO user VALUES(NULL, #{user_id}, #{password})
+    </insert>
+
+    <!-- 删除一条数据 -->
+    <delete id="deleteUser" parameterType="int">
+        DELETE FROM user WHERE id = #{id}
+    </delete>
+
+    <!-- 更新一条数据 -->
+    <update id="updateUser" >
+        UPDATE user SET user_id = #{user_id}, password = #{password} WHERE id = #{id}
+    </update>
+
+    <!-- 查询一条数据 -->
+    <select id="getUser" resultMap="user" parameterType="int">
+        SELECT * FROM user WHERE id = #{id}
+    </select>
+
+    <resultMap id="user" type="com.nikll.demo.db.MyUser">
+        <id column="id"/>
+        <result column="user_id"/>
+        <result column="password"/>
+    </resultMap>
+
+    <!-- 查询从start位置开始的count条数据-->
+    <select id="list" resultMap="user">
+        SELECT * FROM user ORDER BY user_id desc limit #{param1}, #{param2}
+    </select>
+</mapper>

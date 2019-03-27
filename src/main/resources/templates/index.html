@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyControl</title>
+</head>
+<body>
+<!--/*@thymesVar id="name" type="java"*/-->
+<p th:text="${name}" align="center"></p>
+<form method="post" action="/index">
+    <table align="center">
+        <tr>
+            <td th:text="请输入用户名"></td>
+            <td ><input type="text" name="user_id" id="user_id" placeholder="请输入用户名"></td>
+        </tr>
+        <tr>
+            <td th:text="请输入密码"></td>
+            <td ><input type="text" name="password" id="password" placeholder="请输入密码"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button>提交</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
