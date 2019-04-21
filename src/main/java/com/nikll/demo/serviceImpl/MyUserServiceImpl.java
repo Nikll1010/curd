@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MyUserServiceImpl implements MyUserService {
     @Autowired
-    MyUserDao myUserDao;
+    private MyUserDao myUserDao;
     public int getTotal(){
         return myUserDao.getTotal();
     };

@@ -31,9 +31,9 @@
     </select>
 
     <resultMap id="user" type="com.nikll.demo.db.MyUser">
-        <id column="id"/>
-        <result column="user_id"/>
-        <result column="password"/>
+        <id column="id" property="id"/>
+        <result column="user_id" property="user_id"/>
+        <result column="password" property="password"/>
     </resultMap>
 
     <!-- 查询从start位置开始的count条数据-->

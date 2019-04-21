@@ -19,4 +19,12 @@ public class MyUser {
     private int id;
     private int user_id;
     private String password;
+
+    public MyUser(int user_id, String password) {
+        this.user_id = user_id;
+        this.password = password;
+    }
+
+    public MyUser() {
+    }
 }
