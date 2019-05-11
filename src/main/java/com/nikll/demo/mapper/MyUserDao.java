@@ -9,6 +9,8 @@ package com.nikll.demo.mapper;
 import com.nikll.demo.db.MyUser;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * @author Nikll
 
@@ -22,4 +24,5 @@ public interface MyUserDao {
     void deleteUser(int id);
     void updateUser(MyUser myUser);
     MyUser getUser(int id);
+    List<MyUser> getUserlist(int start, int end);
 }

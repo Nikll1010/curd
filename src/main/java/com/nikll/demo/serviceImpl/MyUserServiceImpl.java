@@ -12,6 +12,8 @@ import com.nikll.demo.service.MyUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author Nikll
 
@@ -37,4 +39,8 @@ public class MyUserServiceImpl implements MyUserService {
     public MyUser getUser(int id){
        return myUserDao.getUser(id);
     };
+
+    public List<MyUser> getUserlist(int start, int end) {
+        return myUserDao.getUserlist(start,end);
+    }
 }

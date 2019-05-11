@@ -37,7 +37,7 @@
     </resultMap>
 
     <!-- 查询从start位置开始的count条数据-->
-    <select id="list" resultMap="user">
-        SELECT * FROM user ORDER BY user_id desc limit #{param1}, #{param2}
+    <select id="getUserlist" resultMap="user">
+       SELECT * FROM user ORDER BY user_id DESC LIMIT #{start}, #{end}
     </select>
 </mapper>

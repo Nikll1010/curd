@@ -8,6 +8,8 @@ package com.nikll.demo.service;
 
 import com.nikll.demo.db.MyUser;
 
+import java.util.List;
+
 /**
  * @author Nikll
 
@@ -20,4 +22,5 @@ public interface MyUserService {
     void deleteUser(int id);
     void updateUser(MyUser myUser);
     MyUser getUser(int id);
+    List<MyUser> getUserlist(int start, int end);
 }
