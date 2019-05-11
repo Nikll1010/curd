@@ -8,6 +8,8 @@ package com.nikll.demo.controller;
 
 import com.nikll.demo.db.MyUser;
 import com.nikll.demo.service.MyUserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,10 +29,12 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 @Controller
 @RequestMapping
+@Api(value = "/",description = "这是我的全部请求")
 public class MyController {
     @Autowired
     MyUserService myUserService;
     @RequestMapping("/aaa")
+    @ApiOperation(value = "登陆系统")
     public String index(Model model){
         log.info("登陆");
         String name = "MyControl登陆系统";

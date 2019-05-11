@@ -89,5 +89,18 @@ public class MvcTest {
         }
         System.out.println(n.get(8));
     }
+/*
+    @Test
+    public void preorderRecursion(TreeNode root){
+        doSoming(root);
+        if (root.children()!= null)
+            preorderRecursion((TreeNode) root.children());
+        (x,y) -> Integer.compare(x.getAge(),y.getAge();
+    }
+
+    private void doSoming(TreeNode root) {
+        System.out.println(root.children());
+    }
+*/
 
 }
