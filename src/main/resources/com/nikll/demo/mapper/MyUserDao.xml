@@ -11,7 +11,7 @@
     </select>
 
     <!-- 增加一条数据 -->
-    <insert id="addUser" >
+    <insert id="addUser">
         INSERT INTO user VALUES(NULL, #{user_id}, #{password})
     </insert>
 
@@ -21,13 +21,28 @@
     </delete>
 
     <!-- 更新一条数据 -->
-    <update id="updateUser" >
+    <update id="updateUser">
         UPDATE user SET user_id = #{user_id}, password = #{password} WHERE id = #{id}
     </update>
 
     <!-- 查询一条数据 -->
     <select id="getUser" resultMap="user" parameterType="int">
         SELECT * FROM user WHERE id = #{id}
+    </select>
+    <!-- 查询数据 -->
+    <select id="getUsers" resultMap="user" parameterType="com.nikll.demo.db.MyUser">
+        SELECT * FROM user
+        <trim prefix="WHERE" prefixOverrides="and">
+            <if test="null != id and ''!= id">
+                AND id = #{id}
+            </if>
+            <if test="null != user_id and ''!= user_id">
+                AND user_id = #{user_id}
+            </if>
+            <if test="null != password and ''!= password">
+                AND password = #{password}
+            </if>
+        </trim>
     </select>
 
     <resultMap id="user" type="com.nikll.demo.db.MyUser">

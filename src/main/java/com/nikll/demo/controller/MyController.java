@@ -12,6 +12,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ import java.util.List;
  * @date 2019/2/16 21:45
  */
 @Slf4j
-@RestController
+@Controller
 @RequestMapping
 @Api(value = "/", description = "这是我的全部请求")
 public class MyController {
@@ -42,6 +43,7 @@ public class MyController {
     }
 
     //查询分页数据
+    @ResponseBody
     @RequestMapping(value = "/getUserList", method = RequestMethod.GET)
     @ApiOperation(value = "查询分页数据", httpMethod = "GET")
     public List<MyUser> getUserList(@RequestParam int start, @RequestParam int end) {
@@ -50,10 +52,20 @@ public class MyController {
     }
 
     //查询单条数据
+    @ResponseBody
     @RequestMapping(value = "/getUser", method = RequestMethod.GET)
     @ApiOperation(value = "查询单条数据", httpMethod = "GET")
     public MyUser getUser(@RequestParam int id) {
         return myUserService.getUser(id);
+    }
+
+    //查询数据
+    @ResponseBody
+    @RequestMapping(value = "/getUsers", method = RequestMethod.POST)
+    @ApiOperation(value = "查询数据", httpMethod = "POST")
+    public List<MyUser> getUsers(@RequestBody MyUser user) {
+        List<MyUser> users = myUserService.getUsers(user);
+        return users;
     }
 
     //更新单条数据

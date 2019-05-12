@@ -16,31 +16,43 @@ import java.util.List;
 
 /**
  * @author Nikll
-
  * @date 2019/2/17 0:15
-
  */
 @Service
 public class MyUserServiceImpl implements MyUserService {
     @Autowired
     private MyUserDao myUserDao;
-    public int getTotal(){
+
+    public int getTotal() {
         return myUserDao.getTotal();
-    };
-    public void addUser(MyUser myUser){
+    }
+
+
+    public void addUser(MyUser myUser) {
         myUserDao.addUser(myUser);
-    };
-    public void deleteUser(int id){
+    }
+
+
+    public void deleteUser(int id) {
         myUserDao.deleteUser(id);
-    };
-    public void updateUser(MyUser myUser){
+    }
+
+
+    public void updateUser(MyUser myUser) {
         myUserDao.updateUser(myUser);
-    };
-    public MyUser getUser(int id){
-       return myUserDao.getUser(id);
-    };
+    }
+
+
+    public MyUser getUser(int id) {
+        return myUserDao.getUser(id);
+    }
+
+    public List<MyUser> getUsers(MyUser user) {
+        return myUserDao.getUsers(user);
+    }
+
 
     public List<MyUser> getUserlist(int start, int end) {
-        return myUserDao.getUserlist(start,end);
+        return myUserDao.getUserlist(start, end);
     }
 }

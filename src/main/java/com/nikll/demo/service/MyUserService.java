@@ -22,5 +22,6 @@ public interface MyUserService {
     void deleteUser(int id);
     void updateUser(MyUser myUser);
     MyUser getUser(int id);
+    List<MyUser> getUsers(MyUser user);
     List<MyUser> getUserlist(int start, int end);
 }
